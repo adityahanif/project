@@ -2,7 +2,6 @@ import pandas as pd # this package is for working with large data sets
 import numpy as np # this packages contains statistical functions
 # Load data
 human_data = pd.read_csv('https://content.labxchange.org/labs/datasets/CodeSciLab/HumanHeightWeightData.csv')
-
 print(human_data.head(3))
 print(human_data.tail(3))
 
