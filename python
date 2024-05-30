@@ -1,0 +1,42 @@
+import pandas as pd # this package is for working with large data sets
+import numpy as np # this packages contains statistical functions
+# Load data
+human_data = pd.read_csv('https://content.labxchange.org/labs/datasets/CodeSciLab/HumanHeightWeightData.csv')
+
+print(human_data.head(3))
+print(human_data.tail(3))
+
+print(human_data.shape) #digunakan untuk melihat berapa baris & kolom
+
+print(" ")
+
+print("Tinggi badan minimal: " + str(min(human_data['height_inches'])))
+print("Tinggi badan maksimal: " + str(max(human_data['height_inches'])))
+print("Berat badan minimal: " + str(min(human_data['weight_pounds'])))
+print("Berat badan maksimal: " + str(max(human_data['weight_pounds'])))
+print("Rata-rata tinggi badan: " + str(np.mean(human_data['height_inches'])))
+print("Rata-rata berat badan: " + str(np.mean(human_data['weight_pounds'])))
+print("Median tinggi badan: " + str(np.median(human_data['height_inches'])))
+print("Median berat badan: " + str(np.median(human_data['weight_pounds'])))
+
+print(" ")
+
+print(human_data.isnull()) #menampilkan cell yang null/kosong
+
+import matplotlib.pyplot as plt
+
+fig1 = plt.figure() #membuat grafik
+plt.hist(human_data["height_inches"])
+plt.title('Distribusi Tinggi Badan')
+plt.xlabel('Tinggi Badan (inch)')
+plt.ylabel('Jumlah')
+fig1.savefig('HeightHistogram1.png') #menyimpan histogram sebagai gambar
+#plt.show()
+
+fig2 = plt.figure() #membuat grafik
+plt.hist(human_data["weight_pounds"], bins=16)
+plt.title('Distribusi Berat Badan')
+plt.xlabel('Berat Badan (inch)')
+plt.ylabel('Jumlah')
+fig2.savefig('HeightHistogram2.png') #menyimpan histogram sebagai gambar
+#plt.show()
